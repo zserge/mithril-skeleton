@@ -8,7 +8,7 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{test: /\.es6$/, loader: '6to5-loader'},
+			{test: /\.es6$/, loader: 'babel-loader'},
 			{test: /\.less$/, loader: 'style-loader!css-loader!autoprefixer-loader!less-loader'},
 			{test: /\.(woff|woff2|ttf|eot|svg)$/, loader: 'file-loader'},
 			{test: /\.(png|jpeg|jpg)$/, loader: 'file-loader'}
