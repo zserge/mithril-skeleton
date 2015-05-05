@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
-    "mithril": "*"
+    "mithril": "0.2.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.1.0",

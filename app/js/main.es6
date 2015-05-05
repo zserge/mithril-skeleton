@@ -1,11 +1,33 @@
 import m from 'mithril';
 
-export var controller = class {
-	constructor() {
-		this.header = 'Hello, Mithril!';
+// Component example
+var Header = {
+	controller: (data) => {
+		return {
+			text: data.text,
+		}
+	},
+	view: (c) =>
+		m('h1', c.text)
+}
+
+export var controller = () => {
+	return {
+		header: 'Hello, Mithril!',
+		onclick: function(e) {
+			e.preventDefault();
+			this.header = 'Clicked';
+		},
+		onunload: function(e) {
+			console.log('Component will be unloaded');
+		}
 	}
 };
 
-export var view = (c) => {
-	return m('h1', c.header);
-}
+export var view = (c) =>
+	m('.container',
+		// Nesting components
+		m.component(Header, {text: 'Mithril'}),
+		m('h1', {
+			onclick: c.onclick.bind(c),
+		}, c.header))
